@@ -31,28 +31,6 @@ Then it runs **data quality checks** and writes a **JSON validation report** for
 
 ---
 
-## Repository Structure
-
-market-etl-quality-gates/
-├── etl/
-│ ├── db.py # DB connection helper (.env)
-│ ├── schema.py # Creates tables (DDL)
-│ ├── extract.py # Extract from Stooq CSV
-│ ├── transform.py # Cleaning + typing
-│ ├── load.py # Raw load + staging upsert + curated build
-│ └── run_pipeline.py # End-to-end pipeline runner
-├── checks/
-│ └── quality_checks.py # SQL checks + schema drift-lite + vendor validation
-├── tests/
-│ └── test_transformations.py # pytest regression tests
-├── reports/ # Output validation reports per run
-├── docker-compose.yml # Postgres container
-├── requirements.txt # Python dependencies
-├── .env # DB credentials (DO NOT commit)
-└── README.md
-
-
----
 
 ## Data Model (Raw → Staging → Curated)
 
@@ -154,3 +132,4 @@ Each run creates:
 If issues exist:
 status: "FAILED"
 issues: ["..."]
+
